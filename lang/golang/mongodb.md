@@ -83,7 +83,6 @@ func CreatePage(c *fiber.Ctx) {
 ```
 
 
-
 ## Read One Document
 
 ```go
