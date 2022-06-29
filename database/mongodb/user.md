@@ -1,5 +1,4 @@
-Mongodb User role operation
-===
+# Mongodb User role operation
 
 `https://www.guru99.com/mongodb-create-user.html`
 
@@ -26,6 +25,25 @@ db.createUser(
 	pwd: "password",
 
 	roles:[{role: "userAdmin" , db:"Employee"}]})
+```
+
+```
+use products
+db.createUser( {
+	user: "accountAdmin01",
+	pwd: passwordPrompt(),  // Or  "<cleartext password>"
+	customData: { employeeId: 12345 },
+	roles: [
+		{ role: "clusterAdmin", db: "admin" },
+		{ role: "readAnyDatabase", db: "admin" },
+		"readWrite"
+		]
+	},
+	{ w: "majority" , wtimeout: 5000 }
+)
+
+db.createUser({user: "zxy", pwd: "dddd",roles:["readWrite"]});
+
 ```
 
 ### 添加普通用户
